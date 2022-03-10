@@ -3,10 +3,11 @@
   position: relative;
   background-color: #000000;
   overflow: hidden;
+  text-align: center;
 }
 
 .topnav a {
-  float:left;
+  float: left;
   color: #ffffff;
   text-align: center;
   font-family: 'Open Sans', sans-serif;
@@ -22,6 +23,9 @@
   border-bottom-color: #5865F2;
 }
 
+.navbutton{
+  text-align: center;
+}
 
 
 /* end of nav bar */
@@ -29,6 +33,22 @@
 body{
   font-family: 'Open Sans', sans-serif;
   background-color: #2C2F33;
+  margin: auto;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 5px;
+  background-color: inherit;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.grid-container > div {
+  text-align: center;
+  padding: 20px 0;
+  font-size: 15px;
 }
 
 a{

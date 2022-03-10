@@ -3,6 +3,11 @@
 {% block content %}
 <center>
   <h1>Login</h1>
-  {{form.csrf_token}}
 </center>
+  <form class="login" method="post">
+  {{form.csrf_token}}
+  {{form.username()}}
+  {{form.password()}}
+  {{form.remember_me()}}
+  <input type="submit" value="Go">
 {% endblock %}

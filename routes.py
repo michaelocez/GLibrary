@@ -3,7 +3,7 @@ from flask_login import LoginManager, logout_user, login_user, current_user, log
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 from forms import LoginForm, RegistrationForm
-
+import models
 
 app = Flask(__name__)
 

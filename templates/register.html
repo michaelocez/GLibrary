@@ -4,4 +4,14 @@
 <center>
   <h1>Register</h1>
 </center>
+
+<form class="register" method="post">
+  {{ form.csrf_token }}
+  {{form.username}}
+  {{form.email}}
+  {{form.password}}
+  {{form.password2}}
+  <input type="submit" value="Go">
+</form>
+
 {% endblock %}
