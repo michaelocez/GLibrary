@@ -63,6 +63,12 @@ def register():
         return redirect(url_for('login'))
     return render_template("register.html", form=form)
 
+@app.route("/logout")
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('home'))
+
 @app.errorhandler(404)
 def error404(error):
     return render_template('404.html', title='Error'), 404

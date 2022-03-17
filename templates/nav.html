@@ -4,6 +4,13 @@
   <a class="navbutton" href="/developers">Developers</a>
   <a class="navbutton" href="/">Home</a>
   <a class="navbutton" href="/about">About</a>
-  <a class="navbutton" href="/login">Login</a>
-  <a class="navbutton" href="/register">Register</a>
+    <div class="dropdown" style="float:right;">
+    <button class="dropbtn"><img src="static/images/user_icon.png" alt="Login Stuff" height="50px"></button>
+    <div class="dropdown-content">
+    <a href="/login">Login</a>
+    <a href="/register">Register</a>
+    {% if current_user.is_authenticated %}
+    <a href="/logout">Logout</a>
+    {% endif %}
+  </div>
 </div>
