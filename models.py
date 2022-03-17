@@ -1,26 +1,28 @@
 from routes import db
-from sqlalchemy import ForeignKey
+from sqlalchemy import ForeignKey, true
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 
 class User(db.Model, UserMixin):
     __tablename__ = "User"
     id = db.Column(db.Integer, primary_key=True, nullable=False)
-    username = db.Column(db.Text, nullable=False, unique=True)
-    password_hash = db.Column(db.Text, nullable=False)
+    email = db.Column(db.Text)
+    password = db.Column(db.Text, nullable=False)
 
 def set_password(self, password):
-    self.password_hash = generate_password_hash(password)
+    self.password = generate_password_hash(password)
 
 def check_password(self, password):
-    return check_password_hash(self.password_hash, password)
+    return check_password_hash(self.password, password)
+
+def __repr__(self):
+    return '<User{}>'.format(self.email)
 
 class Favourites(db.Model):
     __tablename__ = "Favourites"
     id = db.Column(db.Integer, primary_key=True, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('User.id'))
     game_id = db.Column(db.Integer, db.ForeignKey('Game.id'))
-
 
 class Game(db.Model):
      __tablename__ = "Game"
