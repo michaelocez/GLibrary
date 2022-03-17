@@ -6,11 +6,12 @@
   <a class="navbutton" href="/about">About</a>
     <div class="dropdown" style="float:right;">
     <button class="dropbtn"><img src="static/images/user_icon.png" alt="Login Stuff" height="50px"></button>
-    <div class="dropdown-content">
-    <a href="/login">Login</a>
-    <a href="/register">Register</a>
-    {% if current_user.is_authenticated %}
-    <a href="/logout">Logout</a>
-    {% endif %}
+      <div class="dropdown-content">
+      <a href="/login">Login</a>
+      <a href="/register">Register</a>
+      {% if current_user.is_authenticated %}
+      <a href="/logout">Logout</a>
+      {% endif %}
+    </div>
   </div>
 </div>
