@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, abort, flash, url_for
+from flask import Flask, render_template, redirect, abort, flash, url_for, request
 from flask_login import LoginManager, logout_user, login_user, current_user, login_required
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -14,8 +14,8 @@ login_manager = LoginManager(app)
 login_manager.init_app = 'login'
 
 @login_manager.user_loader
-def load_user(user_id):
-    return User.get(user_id)
+def load_user(id):
+    return models.User.query.get(int(id))
 
 @app.route('/')
 def home():
