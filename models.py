@@ -9,14 +9,14 @@ class User(db.Model, UserMixin):
     email = db.Column(db.Text)
     password = db.Column(db.Text, nullable=False)
 
-def set_password(self, password):
-    self.password = generate_password_hash(password)
+    def set_password(self, password):
+        self.password = generate_password_hash(password)
 
-def check_password(self, password):
-    return check_password_hash(self.password, password)
+    def check_password(self, password):
+        return check_password_hash(self.password, password)
 
-def __repr__(self):
-    return '<User{}>'.format(self.email)
+    def __repr__(self):
+        return '<User{}>'.format(self.email)
 
 class Favourites(db.Model):
     __tablename__ = "Favourites"
@@ -39,7 +39,7 @@ class Game_Genre(db.Model):
     game_id = db.Column(db.Integer, db.ForeignKey('Game.id'))
     genre_id = db.Column(db.Integer, db.ForeignKey('Genre.id'))
 
-class Game_Deveoper(db.Model):
+class Game_Developer(db.Model):
     __tablename__ = "Game_Deveoper"
     id = db.Column(db.Integer, primary_key=True, nullable=False)
     game_id = db.Column(db.Integer, db.ForeignKey('Game.id'))

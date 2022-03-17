@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, abort, flash
+from flask import Flask, render_template, redirect, abort, flash, url_for
 from flask_login import LoginManager, logout_user, login_user, current_user, login_required
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -39,7 +39,7 @@ def login():
         return redirect(url_for('home'))
     form = LoginForm()
     if form.validate_on_submit():
-        user = models.user.query.filter_by(email=form.email.data).first()
+        user = models.User.query.filter_by(email=form.email.data).first()
         if user is None or not user.check_password(form.password.data):
             flash('wrong password or username')
         else:
