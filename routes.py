@@ -41,7 +41,7 @@ def login():
     if form.validate_on_submit():
         user = models.User.query.filter_by(email=form.email.data).first()
         if user is None or not user.check_password(form.password.data):
-            flash('wrong password or username')
+            flash('wrong password or email')
         else:
             login_user(user, remember=form.remember_me.data)
             flash('Logged in successfully.')
