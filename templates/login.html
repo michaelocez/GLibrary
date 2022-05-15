@@ -1,13 +1,29 @@
 <!DOCTYPE html>
 {% extends 'layout.html' %}
 {% block content %}
-<center>
-  <h1>Login</h1>
-</center>
-  <form class="login" method="post">
-  {{form.csrf_token}}
-  {{form.email()}}
-  {{form.password()}}
-  {{form.remember_me()}}
-  <input type="submit" value="Login">
+<div class="LF">
+  <center>
+    <h1>Login</h1>
+  </center>
+    <form class="login" method="post">
+    {{form.csrf_token}}
+    {{form.email()}}
+    {{form.password()}}
+    <div class="rmb">
+      {{form.remember_me()}}
+    </div>
+    <div class="rmt">
+      <h2>{{form.remember_me.label}}</h2>
+    </div>
+    <input type="submit" value="Login">
+  </form>
+  <a class="rl" href="/register">Don't have an account yet? Sign Up</a>
+    {% with messages = get_flashed_messages() %}
+     {% if messages %}
+        {% for message in messages %}
+           {{ message }}
+        {% endfor %}
+     {% endif %}
+  {% endwith %}
+</div>
 {% endblock %}

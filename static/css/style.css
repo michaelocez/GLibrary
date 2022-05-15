@@ -111,6 +111,12 @@ body{
   font-size: 15px;
 }
 
+.rl{
+  color:#ffffff;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+}
+
 a{
   color: #5865F2;
   text-decoration: none;
@@ -128,6 +134,10 @@ h2{
   color:#ffffff;
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
+}
+
+.rmb, .rmt{
+  display: inline-block;
 }
 
 .footer{

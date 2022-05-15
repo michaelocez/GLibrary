@@ -1,17 +1,28 @@
 <!DOCTYPE html>
 {% extends 'layout.html' %}
 {% block content %}
-<center>
-  <h1>Register</h1>
-</center>
+<div class="RF">
+  <center>
+    <h1>Register</h1>
+  </center>
 
-<form class="register" method="post">
-  {{ form.csrf_token }}
-  {{form.username}}
-  {{form.email}}
-  {{form.password}}
-  {{form.password2}}
-  <input type="submit" value="Register">
-</form>
+  <form class="register" method="post">
+    {{ form.csrf_token }}
+    {{form.username}}
+    {{form.email}}
+    {{form.password}}
+    {{form.password2}}
+    <input type="submit" value="Register">
+  </form>
+  {% with messages = get_flashed_messages() %}
+     {% if messages %}
+        {% for message in messages %}
+           {{ message }}
+        {% endfor %}
+     {% endif %}
+  {% endwith %}
+
+  <a class="rl" href="/login">Already a user? Login</a>
+</div>
 
 {% endblock %}

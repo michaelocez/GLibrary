@@ -44,7 +44,7 @@ def login():
             flash('wrong password or email')
         else:
             login_user(user, remember=form.remember_me.data)
-            flash('Logged in successfully.')
+        flash('Logged in successfully.')
         next = request.args.get('next')
         return redirect(next or url_for('home'))
     return render_template('login.html', form=form)
