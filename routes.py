@@ -47,7 +47,7 @@ def login():
         flash('Logged in successfully.')
         next = request.args.get('next')
         return redirect(next or url_for('home'))
-    return render_template('login.html', form=form)
+    return render_template('login.html', form=form, title="Login")
 
 @app.route("/register", methods=['GET', 'POST'])
 def register():
@@ -61,7 +61,7 @@ def register():
         db.session.commit()
         flash('You are now a registered user.')
         return redirect(url_for('login'))
-    return render_template("register.html", form=form)
+    return render_template("register.html", form=form, title="Register")
 
 @app.route("/logout")
 @login_required
