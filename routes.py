@@ -23,11 +23,12 @@ def home():
 
 @app.route('/games')
 def games():
-    return render_template("games.html", title="Games")
+    return render_template("games.html", games=games, title="Games")
 
 @app.route('/developers')
 def developers():
-    return render_template("developers.html", title="Developers")
+    return render_template("developers.html", developer = developer,
+     title="Developers")
 
 @app.route('/about')
 def about():
@@ -41,7 +42,7 @@ def login():
     if form.validate_on_submit():
         user = models.User.query.filter_by(email=form.email.data).first()
         if user is None or not user.check_password(form.password.data):
-            flash('wrong password or email')
+            flash('Incorrect Password')
         else:
             login_user(user, remember=form.remember_me.data)
         flash('Logged in successfully.')
