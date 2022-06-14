@@ -54,4 +54,5 @@ class Developer(db.Model):
 class Genre(db.Model):
     __tablename__ = "Genre"
     id = db.Column(db.Integer, primary_key=True, nullable=False)
-    tab = db.Column(db.Text())
+    name = db.Column(db.Text())
+    description = db.Column(db.Text())
