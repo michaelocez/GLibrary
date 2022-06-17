@@ -23,10 +23,12 @@ def home():
 
 @app.route('/games')
 def games():
-    return render_template("games.html", games=games, title="Games")
+    game = models.Game.query.all()
+    return render_template("games.html", game=game, title="Games")
 
 @app.route('/developers')
 def developers():
+    developer = models.Developer.query.all()
     return render_template("developers.html", developer = developer,
      title="Developers")
 

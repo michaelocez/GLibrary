@@ -7,7 +7,14 @@
 </center>
 
 <div class="grid-container">
-  
+  {% for game in game %}
+  <div>
+    <a href="/games/{{game.name}}">
+      <h2>{{game.name}}</h2>
+      <img src="static/images/games/{{game.image}}.png" alt="{{game.name}} Image Error">
+    </a>
+  </div>
+  {%endfor%}
 </div>
 
 {% endblock %}
