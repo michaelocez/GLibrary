@@ -21,18 +21,31 @@ def load_user(id):
 def home():
     return render_template("home.html", title="Home")
 
-@app.route('/games')
+@app.route('/games/')
 def games():
     game = models.Game.query.all()
     return render_template("games.html", game=game, title="Games")
 
-@app.route('/developers')
+@app.route('/games/<string:id>')
+def games_id(id):
+    games = models.Game.query.filter_by(id=id).first()
+    return render_template("gamesid.html", games=games, title="Games")
+
+
+@app.route('/developers/')
 def developers():
     developer = models.Developer.query.all()
     return render_template("developers.html", developer = developer,
      title="Developers")
 
-@app.route('/about')
+@app.route('/developers/<string:id>')
+def developers_id(id):
+    developers = models.Developer.query.filter_by(id=id).first()
+    return render_template("developersid.html", developers = developers,
+     title="Developers")
+
+
+@app.route('/about/')
 def about():
     return render_template("about.html", title="About")
 

@@ -8,9 +8,9 @@
 <div class="grid-container">
   {% for developer in developer %}
   <div>
-    <a href="/developers/{{developer.name}}">
+    <a href="/developers/{{developer.id}}">
       <h2>{{developer.name}}</h2>
-      <img src="static/images/Developers/{{developer.image}}.png" alt="{{developer.name}} Image Error">
+      <img src="/static/images/Developers/{{developer.image}}.png" alt="{{developer.name}} Image Error">
     </a>
   </div>
   {%endfor%}
